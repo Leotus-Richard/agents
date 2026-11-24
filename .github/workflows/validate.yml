@@ -1,0 +1,35 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Validate and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22.20.0'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Validate agents
+        run: npm run validate
+      - name: Check generated catalog
+        run: npm run catalog:check
+      - name: Run tests
+        run: npm test
+      - name: Check imported skills exist at their pinned revision
+        run: npm run check:skills

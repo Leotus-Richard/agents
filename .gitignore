@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+# Installed copies of agents and skills are build output, never source.
+.claude/
+.agents/
+.github/agents/
+.opencode/
+.cursor/
+.codex/
+.gemini/
+skills-lock.json

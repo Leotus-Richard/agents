@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "agents": [
+    {
+      "name": "bug-fixer",
+      "stage": "build",
+      "license": "Apache-2.0",
+      "provenance": {
+        "kind": "original",
+        "notes": "Written as the first example agent for this repository."
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-11-24",
+          "bump": "initial",
+          "expectedBehavior": "Reproduces one reported defect, traces it to its root cause, fixes it there with the smallest change, and reports the evidence that the fix works. It stops when it cannot reproduce the problem or when the report is a feature request, and it does not commit or push unless asked."
+        }
+      ],
+      "evaluations": []
+    }
+  ]
+}
